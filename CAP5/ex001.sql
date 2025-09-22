@@ -1,6 +1,6 @@
 /*
 1) Realize uma consulta que retorne o endereço completo dos clientes que
-moram na cidade de medianeira.
+moram na cidade de capanema.
 */
 
 SELECT
