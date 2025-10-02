@@ -1,0 +1,16 @@
+/*
+m) Apresente o valor total dos patrimônios do prédio 4 e que são do
+departamento de obras localizado no bairro CENTRO.
+*/
+
+SELECT
+    SUM(PAT_VLRAQUISICAO) AS VALOR_TOTAL
+FROM
+         TB_PATRIMONIO
+    JOIN TB_PREDIO ON PAT_CODPREDIO = PRE_CODIGO
+    JOIN TB_DEPARTAMENTO ON PAT_CODDEPARTAMENTO = DEP_CODIGO
+    JOIN TB_BAIRRO ON PRE_CODBAIRRO = BAI_CODIGO
+WHERE
+        PRE_CODIGO = 4
+    AND UPPER(DEP_DESCRICAO) = 'OBRAS'
+    AND UPPER(BAI_DESCRICAO) = 'CENTRO';

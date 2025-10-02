@@ -1,0 +1,19 @@
+/*
+i) Apresente quantos produtos possui cada um dos prédios, separando por
+tipo e excluindo os da marca "ARNO".
+*/
+
+SELECT
+    PRE_DESCRICAO,
+    TIP_DESCRICAO,
+    COUNT(*) AS QUANTIDADE
+FROM
+        TB_PREDIO
+    JOIN TB_PATRIMONIO ON PAT_CODPREDIO = PRE_CODIGO
+    JOIN TB_TIPO ON PAT_CODTIPO = TIP_CODIGO
+    JOIN TB_MARCA ON PAT_CODMARCA = MAR_CODIGO
+WHERE
+    UPPER(MAR_DESCRICAO) != 'ARNO'
+GROUP BY
+    PRE_DESCRICAO,
+    TIP_DESCRICAO;

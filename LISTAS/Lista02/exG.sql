@@ -1,0 +1,17 @@
+/*
+g) Apresente todos os patrimônios que estão localizados na cidade 3, mas
+que não sejam "mobilia" e nem do departamento "OBRAS".
+*/
+
+SELECT
+    PAT_DESCRICAO
+FROM
+         TB_PATRIMONIO
+    JOIN TB_PREDIO ON PAT_CODPREDIO = PRE_CODIGO
+    JOIN TB_CIDADE ON PRE_CODCIDADE = CID_CODIGO
+    JOIN TB_TIPO ON PAT_CODTIPO = TIP_CODIGO
+    JOIN TB_DEPARTAMENTO ON PAT_CODDEPARTAMENTO = DEP_CODIGO
+WHERE
+        CID_CODIGO = 3
+    AND UPPER(TIP_DESCRICAO) != 'MOBILIA'
+    AND UPPER(DEP_DESCRICAO) != 'OBRAS';
